@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no, date=no, address=no, email=no, url=no">
+    <meta name="x-apple-disable-message-reformatting">
+    <meta name="color-scheme" content="light dark">
+    <meta name="supported-color-schemes" content="light dark">
+    <title>Responsive HTML Email Columns</title>
+    <!--[if mso]>
+        <noscript>
+            <xml>
+                <o:OfficeDocumentSettings>
+                <o:PixelsPerInch>96</o:PixelsPerInch>
+                </o:OfficeDocumentSettings>
+            </xml>
+        </noscript>
+    <![endif]-->
+    <style type="text/css">
+                    /* color-scheme and supported-color-schemes enables dark mode control via the dark mode media query */
+                    :root {
+                color-scheme: light dark;
+                supported-color-schemes: light dark;
+            }
+
+            /*-- SIMPLE TWO COLUMNS LESSON --*/
+
+            .column-wrapper{
+                padding: 0;
+                font-size: 0;
+                background-color: #b7c0ba;
+                text-align: center;
+            }
+
+            .column{
+                border-spacing: 0;
+                vertical-align: top;
+                width: 100%;
+                display: inline-block;
+                background-color: #546c94;
+                color: orange;
+            }
+
+            .column.column-one-half{
+                max-width: 300px;
+            }
+
+            /* By default we turn off hover effects on links, your design may have it differently */
+            a:hover {
+                text-decoration: none !important;
+            }
+
+            /* This snippet removed random blue links on Apple Devices */
+            a[x-apple-data-detectors] {
+                color: inherit !important;
+                text-decoration: none !important;
+            }
+
+            /* This will stop email clients adding random styling to phone numbers */
+            a[href^="tel"]:hover {
+                text-decoration: none !important;
+            }
+
+            /* We want all our links and images to not have hidden borders, so they fit snugly in the design */
+            a img {
+                border: none;
+            }
+
+            /* Since we're using semantic HTML markup, we want to reset our paragraphs and headings to not have margins by default, if the design needs them we'll add them inline */
+            p {
+                margin: 0;
+                padding: 0;
+                margin-bottom: 0;
+            }
+
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                margin: 0;
+                padding: 0;
+                margin-bottom: 0;
+            }
+
+            /* Force Outlook to use our line-heights as an exact value rather than a minimum */
+            table td {
+                mso-line-height-rule: exactly;
+            }
+
+            /* Collapse borders on tables so there are no gaps in Outlook */
+            table {
+                border-collapse: collapse;
+            }
+
+            /* This snippet removed random blue links on Apple Devices */
+            #emailBody #emailWrapper [x-apple-data-detectors] {
+                color: inherit !important;
+                text-decoration: inherit !important;
+            }
+
+            /* This is the most reliable way of utilizing Google Fonts (or other web fonts) in your email code.
+
+            For a guide on how to find the URL of the webfont you want to use in this way, please visit: https://www.emailonacid.com/blog/web-fonts-google-fonts/ */
+
+
+            /* Here we are including a few basic Media Queries, these CSS rules will only be applied when the device width is 640px or below.
+
+            Feel free to adjust this value as your design permits/requires. */
+            @font-face {
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 400;
+                font-display: swap;
+                src: url(https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2) format('woff2');
+                unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+            }
+
+                /* Here we use this to force our grid sections to expand out and stack on mobile devices */
+                .tflex {
+                    display: block !important;
+                    width: 100% !important;
+                }
+
+                /* We use this if we need to hide elements on mobile */
+                .hm {
+                    display: none !important;
+                    width: 0 !important;
+                    height: 0 !important;
+                    padding: 0 !important;
+                    font-size: 0 !important;
+                    line-height: 0 !important;
+                }
+
+                @media screen and (max-width: 599.98px){
+                    .column-wrapper{
+                        padding: 15px 0 !important;
+                    }
+                    .padding{
+                        padding: 5px 20px 0!important;
+                    }
+
+                    .column-wrapper.fluid-hybrid .column,
+                    .column-wrapper.fluid-hybrid .column img{
+                        max-width: 100% !important;
+                        width: 100% !important;
+                    }
+
+                    .column-wrapper.fluid-hybrid{
+                        padding: 50px 50px !important;
+                    }
+                }
+
+                @media screen and (max-width: 399.98px){
+
+                }
+    </style>
+</head>
+    <body class="body" id="emailBody" xml:lang="en" style="background-color: #EFEFEF;margin: 0;padding: 0;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;">
+        <!-- Wrap your entire email in a div. For accessibility purposes, include a role, aria-roledescription, aria-label, lang, and dir attributes. -->
+        <div role="article" aria-roledescription="email" aria-label="email name" lang="en" dir="ltr" style="font-size: medium;font-size: max(16px, 1rem);">
+            <!--This is our preview text that displays in email clients, but we hide it so it doesn't effect our design.-->
+            <div style="display:none;font-size:1px;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;mso-hide:all;font-family:sans-serif;">Get 10% off. Use offer code JUNE10 for 10% off or show this email in-restaurant.</div>    
+        <table border="0" cellpadding="0" cellspacing="0" style="max-width: 600px;width: 100%;" width="100%" bgcolor="white" role="presentation" align="center">
+
+            <tr>
+                <td>
+                    <table border="0" cellpadding="0" cellspacing="0" style="max-width: 600px;width: 100%;" width="100%" bgcolor="#EFEFEF" role="presentation" align="center">
+                        <td align="center">
+                            <a href="#" target="_blank">
+                                <img src="https://ci3.googleusercontent.com/meips/ADKq_NZxGKYV1skSLCLgTcN0fjPW0AEYTu24pV9hJg3jmQJ4lgwi_Zt5B3WzrzzsQIwFkrHqjqeROEo58REps8X1coGu1g2e2CXKIw1JBF6E1xLVLd2lbwPIkgM4TH8hH7T6OlF2P5ErtdAMMVXNYbcQ9Rtih3HKxcbqGDIvxbyX8wBAbAX6isoof2cSYtLhQ6sp=s0-d-e1-ft#https://braze-images.com/appboy/communication/assets/image_assets/images/67db23a967f64d0064da749f/original.jpg?1742414760" alt="hbo max" style="display: block;width: 600px;" width="600">
+                            </a>
+                        </td>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <table border="0" cellpadding="0" cellspacing="0" width="100%" role="presentation">
+                        <td align="center">
+                            <a href="#">
+                                <img src="https://ci3.googleusercontent.com/meips/ADKq_NYtcYtsO2YG_kDo0lvygmaOpijuXbZHrOJOc1e0_NmZxZTdhr0BOUOTwWiQVGKy2FpH9SkNLtlsr8rftm7ZleMpfSlcdw-HAplFattL5FhV-LCGd6qIhr7cYaTO2c3lpt3zo2cmvPCcAv_6jz6j4xtXrlNqyNKICigVuvJaYRE1QGdDQw58DFW48eczVN9R=s0-d-e1-ft#https://braze-images.com/appboy/communication/assets/image_assets/images/681cfb2a5741380065e2650d/original.gif?1746729770" alt="" style="display: block;width: 550px;">
+                            </a>
+                        </td>
+                    </table>
+                </td>
+            </tr>
+
+            <tr>
+                <td align="center" style="padding: 20px;">
+                    <table border="0" cellpadding="0" cellspacing="0" style="max-width: 600px;width: 100%;" width="100%" bgcolor="#EFEFEF" role="presentation" align="center">
+                        <p style="font-weight: 500;font-family: 'helvetica neue', verdana, sans-serif;font-size: 20px;letter-spacing: 1px;">Not sure what to watch this weekend? We've got a lineup waiting just for you.</p>
+                    </table>
+                </td>
+            </tr>
+
+            <table border="0" cellpadding="0" cellspacing="0" style="max-width: 600px;width: 100%;" width="100%" bgcolor="white" role="presentation" align="center">
+                <tr>
+                    <td>
+                        <table border="0" cellpadding="0" cellspacing="0" style="max-width: 500px;width: 100%;" width="100%" role="presentation" align="center">
+                            <td style="padding: 10px;">
+                                <img src="https://ci3.googleusercontent.com/meips/ADKq_NZKXNqIfFVfFkAG7P2cKC1ZJ6VkjsNJ9BEOWVbdqijEouT4TS-qMmV7HozyrXPkzNlaWAmG89LQyh4cz0ccIT73DS06-VgIIajMa9YeN0iJ085Drz--ddMkxiEQn64T_pzx1rOO5Ku0uztuemH2_1gTgJw7nbCrIll3vsRU9NHVPfVhgs1pWA7ZPPwqrTsO=s0-d-e1-ft#https://braze-images.com/appboy/communication/assets/image_assets/images/68125aa77a78a400646fb093/original.jpg?1746033318" alt="" style="display: block;width: 150px;">
+                            </td>
+                            <td style="padding: 10px;">
+                                <h4 style="font-family:  'helvetica neue', verdana, sans-serif;">Emmy®-Winning Original</h4>
+                                <p style="font-family: 'helvetica neue', verdana, sans-serif;line-height: 20px;">No one asked him to, so Conan O'Brien travels the world to meet fans. <strong>Season 2 now streaming.</strong></p>
+                            </td>
+                        </table>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td>
+                        <table border="0" cellpadding="0" cellspacing="0" style="max-width: 500px;width: 100%;" width="100%" role="presentation" align="center">
+                            <td style="padding: 10px;">
+                                <img src="https://ci3.googleusercontent.com/meips/ADKq_NZey31ggElOeG1w3TC9NJcutP-miaQ3uIQCwSglylH-zou7Rmd7_9eIrXOM2vLwbq9TLQy8qP9GAcWuoUFXn-uweY_tVSMWPoMgdUEEDO-bkXR92JtIvvA9oFDRCSlb76vYtcQL0VDL3vYX5L0IRNobeSQltqX4oLWvQrUTWS0xcSNeswe5uLFGnhwAFkKn=s0-d-e1-ft#https://braze-images.com/appboy/communication/assets/image_assets/images/68125aa72a0a2000645d7a79/original.jpg?1746033318" alt="" style="display: block;width: 150px;">
+                            </td>
+                            <td style="padding: 10px;">
+                                <h4 style="font-family:  'helvetica neue', verdana, sans-serif;">AAPI Voices:
+                                    Action Classic</h4>
+                                <p style="font-family: 'helvetica neue', verdana, sans-serif;line-height: 20px;">Bruce Lee plays a martial artist looking to avenge his sister's death. Will he survive the fight?</p>
+                            </td>
+                        </table>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td>
+                        <table border="0" cellpadding="0" cellspacing="0" style="max-width: 500px;width: 100%;" width="100%" role="presentation" align="center">
+                            <td style="padding: 10px;">
+                                <img src="https://ci3.googleusercontent.com/meips/ADKq_NaY74yVHqW-UPk6NKFFLk5sqh95_hdxXzgwBEvhxnSeQy48I_wnyfKN-wVvICIaZY_yfhdNGMEGp_oeL-skZptGYgBINZhf8T6C7fJv1z4J4gD0m7xNImuAb7kvp1_Hn8jK4DwEd_e4fFBu9prH6ONrvTMyZsfrx-N5MXw8N4ELMdXdiMnT5pIxRBMaZ6E_=s0-d-e1-ft#https://braze-images.com/appboy/communication/assets/image_assets/images/68125aa6dcb93900676d627e/original.jpg?1746033318" alt="" style="display: block;width: 150px;">
+                            </td>
+                            <td style="padding: 10px;">
+                                <h4 style="font-family:  'helvetica neue', verdana, sans-serif;">Tearjerker</h4>
+                                <p style="font-family: 'helvetica neue', verdana, sans-serif;line-height: 20px;">See Brendan Fraser in his Oscar®-winning role as a recluse attempting to reconnect with his daughter.</p>
+                            </td>
+                        </table>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td>
+                        <table border="0" cellpadding="0" cellspacing="0" style="max-width: 500px;width: 100%;" width="100%" role="presentation" align="center">
+                            <td style="padding: 10px;">
+                                <img src="https://ci3.googleusercontent.com/meips/ADKq_NbwEOmUH-UYNRivm9dtbqO2-3oB2t0EeaCCSlccE_l2QLy5o_jiA44wSmohL-Vc01BbjNu_I-Z3bf9gG5OxF4izOOBeOddxFK471lcZi0U2BjLDGALlDZPlATAkUv24QIK7U4fOQKW8u1S8c1TsaA6d8j5YYAkdgYsaZ_vL-zxwQDdbixY3Bz79IASjMssZ=s0-d-e1-ft#https://braze-images.com/appboy/communication/assets/image_assets/images/681cfb2ad86a6400646b2479/original.jpg?1746729770" alt="" style="display: block;width: 150px;">
+                            </td>
+                            <td style="padding: 10px;">
+                                <h4 style="font-family:  'helvetica neue', verdana, sans-serif;">Dark Fantasy</h4>
+                                <p style="font-family: 'helvetica neue', verdana, sans-serif;line-height: 20px;">A team of Ancient Heroes protect the world from an ultimate evil in this animated adventure.</p>
+                            </td>
+                        </table>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td>
+                        <table border="0" cellpadding="0" cellspacing="0" style="max-width: 500px;width: 100%;" width="100%" role="presentation" align="center">
+                            <td style="padding: 10px;">
+                                <img src="https://ci3.googleusercontent.com/meips/ADKq_NbDDXmrNXDMRt002Z7Px9kDWI_sDuBT3DjoOxQ1f3g7KXxSHcUGaEpo-o-g8g8Rv1zhdRouF5u1ZUIbevJkuDD3E-dQJol880nKcpe9-2BM-sFuJfV7z7r9BTPYFWAihOWz4E2TA4SfH6-r-8UUdZ4PzZoz4vyPxxINXgu3K8pHoV1-RhV_J5lEh1N8nqHF=s0-d-e1-ft#https://braze-images.com/appboy/communication/assets/image_assets/images/68125aa6787be800641cfbb4/original.jpg?1746033318" alt="" style="display: block;width: 150px;">
+                            </td>
+                            <td style="padding: 10px;">
+                                <h4 style="font-family:  'helvetica neue', verdana, sans-serif;">New True Crime</h4>
+                                <p style="font-family: 'helvetica neue', verdana, sans-serif;line-height: 20px;">Missing or murdered? Three friends disappeared within 34 days of each other in Bakersfield, California.</p>
+                            </td>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+
+            <table border="0" cellpadding="0" cellspacing="0" style="max-width: 600px;width: 600px;border: 0;padding:10px;" width="600" role="presentation" align="center">
+                <td style="background-color: #fdf9f9;padding: 25px 20px;font-family: 'Helvetica Neu=e', Helvetica, Arial, sans-serif;" align="left">
+                    <h1 style="padding: 15px;font-size: 45px;">
+                        Weird World
+                    </h1>
+                    <p style="padding: 15px;font-size: 20px;line-height: 26px;">In this offbeat comedy, the employees of a small company bring happiness to a bizarre yet colorful world.</p>
+                    <img src="https://ci3.googleusercontent.com/meips/ADKq_NZRUYLtA4lQKbxpEkLaQ_2Qmnt__cmRz6xZpIpr8XdRqpR1g8GppoaWxQ9-i5VjoGvf1Zk10u0H8p8g_t_9C5yfPOludMsXEfBiz6u-beiKcFY08Jti95k8PYe4lmYhWGF5AaSI6U1naE5p009Wgas6ofQXUDDdjcHAUq1lBnU9_FgY00GCadT_B21l574L=s0-d-e1-ft#https://braze-images.com/appboy/communication/assets/image_assets/images/681cffad2dbc1c006479a67e/original.jpg?1746730924" alt="smiling friends" style="display: block;width: 350px;padding: 15px;">
+                    <table border="0" cellpadding="0" cellspacing="0" role="presentation">
+                        <td style="padding:10px;background-color: rgba(0, 13, 255, 0.661);border-radius: 20px;">
+                            <a href="#" style="text-decoration: none;font-family: 'Helvetica Neu=e', Helvetica, Arial, sans-serif;color: #ffff;padding: 10px 15px 10px;">+ my list</a>
+                        </td>
+                    
+                </td>
+            </table>
+            
+
+        </table>
+        </div>
+    </body>
+</html>
